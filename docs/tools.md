@@ -6,6 +6,34 @@ tags: rust
 
 ## 開發
 
+### Compile and run
+
+有時候我們可能會希望能快速編譯並執行某個小 Rust 程式， 但由於 `cargo run` 必須依賴特別的專案結構與 `Cargo.toml` 才能執行，所以必須兩步驟，先使用 `rustc` 編譯出程式的執行檔，然後才能執行它。
+
+一個簡單的方法是，透過一 bash script 來編譯並執行 Rust 程式，例如：
+
+```rust
+#!/bin/bash
+
+set -eo pipefail
+
+function compile_and_run() {
+  local readonly name="$([ -n "${1}" ] && basename -- "${1}" '.rs')"
+
+  rustc ${1} "${@:2}" \
+    && [ -n "${name}" -a -f "${name}" ] \
+    && ./${name} \
+    && rm ${name}
+}
+
+compile_and_run "${@}"
+```
+
+參考資料：
+
+- [What is rustc?](https://doc.rust-lang.org/rustc/what-is-rustc.html)
+- [A single command to compile and run Rust programs](http://blog.joncairns.com/2015/10/a-single-command-to-compile-and-run-rust-programs/)
+
 ### rustfmt
 
 https://github.com/rust-lang/rustfmt
