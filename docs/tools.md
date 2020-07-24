@@ -62,7 +62,7 @@ $ cargo fmt
 
 https://github.com/rust-lang/rustfix
 
-自動修正編譯器請告的錯誤。
+自動修正編譯器警告的錯誤。
 
 在使用 Cargo 管理的專案下執行：
 
