@@ -27,11 +27,13 @@ $ rustup self update
 
 安裝指定的 Rust 版本：
 
+> ```
 > rustup toolchain <channel>[-<date>][-<host>]
 >                   
 >   <channel>       = stable|beta|nightly|<version>
 >   <date>          = YYYY-MM-DD
 >   <host>          = <target-triple>
+> ```
 
 ```console
 $ rustup toolchain install nightly
