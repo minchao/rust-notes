@@ -6,6 +6,56 @@ tags: rust
 
 ## 開發
 
+### rustup
+
+- https://rustup.rs/
+- https://rust-lang.github.io/rustup/
+
+Rust 的安裝工具。可以輕鬆地在 stable、beta 與 nightly 版本間切換，並讓 cross-compiling 變得更簡單。
+
+安裝：
+
+```console
+$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+更新：
+
+```console
+$ rustup self update
+```
+
+安裝指定的 Rust 版本：
+
+> rustup toolchain <channel>[-<date>][-<host>]
+>                   
+>   <channel>       = stable|beta|nightly|<version>
+>   <date>          = YYYY-MM-DD
+>   <host>          = <target-triple>
+
+```console
+$ rustup toolchain install nightly
+```
+
+設定系統預設的 Rust 版本：
+
+```console
+$ rustup default nightly
+info: using existing install for 'nightly-x86_64-apple-darwin'
+info: default toolchain set to 'nightly-x86_64-apple-darwin'
+
+  nightly-x86_64-apple-darwin unchanged - rustc 1.48.0-nightly (d006f5734 2020-08-28)
+
+$ rustc --version
+rustc 1.48.0-nightly (d006f5734 2020-08-28)
+```
+
+更新 Rust：
+
+```console
+$ rustup update
+```
+
 ### Compile and run
 
 有時候我們可能會希望能快速編譯並執行某個小 Rust 程式， 但由於 `cargo run` 必須依賴特別的專案結構與 `Cargo.toml` 才能執行，所以必須兩步驟，先使用 `rustc` 編譯出程式的執行檔，然後才能執行它。
