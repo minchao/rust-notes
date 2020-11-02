@@ -27,13 +27,13 @@ $ rustup self update
 
 安裝指定的 Rust 版本：
 
-> ```
-> rustup toolchain <channel>[-<date>][-<host>]
->                   
->   <channel>       = stable|beta|nightly|<version>
->   <date>          = YYYY-MM-DD
->   <host>          = <target-triple>
-> ```
+```
+rustup toolchain <channel>[-<date>][-<host>]
+                  
+  <channel>       = stable|beta|nightly|<version>
+  <date>          = YYYY-MM-DD
+  <host>          = <target-triple>
+```
 
 ```console
 $ rustup toolchain install nightly
@@ -145,6 +145,14 @@ $ cargo clippy
 https://crates.io/
 
 Cargo 是 Rust 的套件管理工具，用於下載依賴，編譯套件及建立可供發行的套件。
+
+建立新套件：
+
+```console
+$ cargo new hello_world --bin
+```
+
+傳遞 `--bin` 建立新的 binary 程式，若想建立 library，請傳遞 `--lib`。
 
 ## 整合開發環境（IDE）
 
